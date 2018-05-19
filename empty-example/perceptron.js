@@ -1,7 +1,7 @@
 class Perceptron {
 
 	constructor(size) {
-		this.lr = 0.2;
+		this.lr = 0.001;
 	    this.weights = [];
 	 
 	    for (var i = size - 1; i >= 0; i--) {
@@ -27,6 +27,12 @@ class Perceptron {
   		}
   		console.log(error);
   	}
+
+  	guessY(x){
+  		let m = -this.weights[0]/this.weights[1];
+  		let c = -this.weights[2]/this.weights[1];
+  		return m*x + c;
+  	}
 }
 
 
@@ -34,7 +40,7 @@ function getRandomWeight() {
 	if(Math.random() > 0.5){
 		return Math.random() * -1;
 	}
-  	return Math. random();
+  	return Math.random();
 }
 
 
